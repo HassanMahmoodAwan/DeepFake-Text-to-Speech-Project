@@ -4,9 +4,9 @@ import HeroSection_DF from "../../assets/HeroSection_DF.png"
 
 function Hero() {
   return (
-    <div className='h-[450px] w-full p-20 flex'>
+    <div className='h-[400px] w-full flex'>
       {/* Left-Side */}
-      <div className='lg:w-[50%] h-full w-full'>
+      <div className='lg:w-[50%] h-full w-full text-center lg:text-start'>
         <p className='text-sm mb-3'>DEEP FAKE AI VOICE GENERATOR</p>
         <h1 className='text-3xl font-bold'>The Most Realistic AI Voce Cloning <br /> & Text to Speech for</h1>
         <h1 className='text-3xl font-bold text-indigo-800'>Various Content</h1>
