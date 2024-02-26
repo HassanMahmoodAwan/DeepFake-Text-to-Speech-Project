@@ -4,16 +4,17 @@ import { Button } from "@material-tailwind/react"
 
 function AccountAcess() {
   return (
-    <div className="w-full h-[700px] grid bg-yellow-200 place-content-center">
-      <div className="w-full h-full flex">
+    <div className="w-full h-[700px] ">
+      <div className="w-full h-full flex justify-between items-center space-x-3">
+
       {/* Left Hand Side */}
-      <div id="Left-Side" className="hidden lg:block w-[50%] h-full ">
-        <img src={AccountAccessSideImg} alt="ProcessImg" className="w-[350px] h-[500px]" />
+      <div id="Left-Side" className="hidden lg:block ">
+        <img src={AccountAccessSideImg} alt="ProcessImg" className="w-[430px] h-[500px]" />
       </div>
 
       {/* Right HAND SIDE */}
-      <div className="w-full lg:w-[50%] h-full flex justify-center lg:justify-end">
-            <div className="h-[500px] w-[80%] bg-gray-50 rounded-lg shadow-md px-10 grid place-content-center">
+      <div className="w-full lg:w-[50%] flex justify-center lg:justify-end">
+            <div className="h-[500px] w-[90%] bg-gray-50 rounded-lg shadow-deep-purple-200 shadow-md px-10 grid place-content-center hover:shadow-deep-purple-200 hover:relative hover:bottom-1  hover:shadow-lg">
                <h1 className="text-3xl font-bold text-center">Create a Account to Access</h1>
                <div className="mt-16 space-y-4 text-lg text-gray-800">
                     <p>Generate Audio in Seconds.</p>

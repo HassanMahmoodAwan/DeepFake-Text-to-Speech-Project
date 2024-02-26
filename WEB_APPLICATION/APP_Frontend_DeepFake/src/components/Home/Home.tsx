@@ -1,6 +1,7 @@
 // import React from 'react'
 import AccountAcess from "./AccountAcess"
 import AppInfo from "./AppInfo"
+import Features from "./Features"
 import Hero from "./Hero"
 import TextToSpeech from "./TextToSpeech"
 import UnderHero from "./UnderHero"
@@ -17,6 +18,7 @@ function Home() {
         <AccountAcess />
         <AppInfo />
         <TextToSpeech />
+        <Features />
       
       
     </div>

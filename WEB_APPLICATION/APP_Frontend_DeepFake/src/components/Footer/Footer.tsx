@@ -40,16 +40,17 @@ function Footer() {
                         
                         <div className="space-y-2 lg:space-y-3">
                             <h1 className="text-xl font-bold">Our Company</h1>
-                            <ul className="space-x-3 lg:space-x-0 lg:space-y-1 flex lg:grid justify-center">
+                            <ul className="space-x-2 md:space-x-4
+                             lg:space-x-0 lg:space-y-1 flex lg:grid justify-center">
                                 <NavLink to={"/"} className={({isActive})=> `${isActive ? 'text-indigo-800': 'text-slate-900'}`}>Home</NavLink>
 
                                 <NavLink to={"textSpeech"} className={({isActive})=> `${isActive ? 'text-indigo-800': 'text-slate-900'}`}>Text-To-Speech</NavLink>
 
                                 <NavLink to={"voiceCloning"} className={({isActive})=> `${isActive ? 'text-indigo-800': 'text-slate-900'}`}>VoiceCloning</NavLink>
 
-                                <NavLink to={"aboutUs"} className={({isActive})=> `${isActive ? 'text-indigo-800': 'text-slate-900'}`}>About Us</NavLink>
+                                <NavLink to={"aboutUs"} className={({isActive})=> `${isActive ? 'text-indigo-800': 'text-slate-900'}`}>About</NavLink>
 
-                                <NavLink to={"contactUs"} className={({isActive})=> `${isActive ? 'text-indigo-800': 'text-slate-900'}`}>Contact Us</NavLink>
+                                <NavLink to={"contactUs"} className={({isActive})=> `${isActive ? 'text-indigo-800': 'text-slate-900'}`}>Contact</NavLink>
                             </ul>
 
 
