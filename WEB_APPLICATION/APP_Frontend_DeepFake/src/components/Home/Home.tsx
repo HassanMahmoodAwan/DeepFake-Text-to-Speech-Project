@@ -1,18 +1,26 @@
 // import React from 'react'
 import AccountAcess from "./AccountAcess"
+import AppInfo from "./AppInfo"
 import Hero from "./Hero"
+import TextToSpeech from "./TextToSpeech"
 import UnderHero from "./UnderHero"
 
 function Home() {
   return (
-    <div className="h-full w-full mt-20  flex place-content-center bg-green-400">
-      <div className="h-full w-full md:w-[93%] bg-yellow-300">
+    
+    
+    <div className="w-full h-full mt-20 box-border px-4 md:px-10 lg:px-28">
+    
+     
         <Hero />
         <UnderHero />
         <AccountAcess />
-      </div>
+        <AppInfo />
+        <TextToSpeech />
+      
       
     </div>
+    
   )
 }
 

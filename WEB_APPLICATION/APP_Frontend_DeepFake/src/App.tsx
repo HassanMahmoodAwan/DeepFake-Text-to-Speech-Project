@@ -17,10 +17,10 @@ function App() {
   ))
 
   return (
-    <div className="h-full w-full grid place-content-center bg-gray-200">
-      <div className="h-full w-full  bg-green-600">
+    <div className="h-full w-full bg-gray-200">
+      
         <RouterProvider router={route} />
-      </div>
+      
     </div>
   )
 }
