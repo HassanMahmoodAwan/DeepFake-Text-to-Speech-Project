@@ -15,15 +15,15 @@ function Navbar() {
 
             {/* Menu Buttons */}
             <ul className="hidden lg:flex space-x-8  text-base font-bold">
-                <NavLink to={"/"} className={({isActive})=> `${isActive ? 'text-indigo-800': 'text-slate-900'}`}>Home</NavLink>
+                <NavLink to={"/"} className={({isActive})=> `${isActive ? 'text-purple-700': 'text-slate-900'}`}>Home</NavLink>
 
-                <NavLink to={"textSpeech"} className={({isActive})=> `${isActive ? 'text-indigo-800': 'text-slate-900'}`}>Text-To-Speech</NavLink>
+                <NavLink to={"textSpeech"} className={({isActive})=> `${isActive ? 'text-purple-700': 'text-slate-900'}`}>Text-To-Speech</NavLink>
 
-                <NavLink to={"voiceCloning"} className={({isActive})=> `${isActive ? 'text-indigo-800': 'text-slate-900'}`}>VoiceCloning</NavLink>
+                <NavLink to={"voiceCloning"} className={({isActive})=> `${isActive ? 'text-purple-700': 'text-slate-900'}`}>VoiceCloning</NavLink>
 
-                <NavLink to={"aboutUs"} className={({isActive})=> `${isActive ? 'text-indigo-800': 'text-slate-900'}`}>About Us</NavLink>
+                <NavLink to={"aboutUs"} className={({isActive})=> `${isActive ? 'text-purple-700': 'text-slate-900'}`}>About Us</NavLink>
 
-                <NavLink to={"contactUs"} className={({isActive})=> `${isActive ? 'text-indigo-800': 'text-slate-900'}`}>Contact Us</NavLink>
+                <NavLink to={"contactUs"} className={({isActive})=> `${isActive ? 'text-purple-700': 'text-slate-900'}`}>Contact Us</NavLink>
                 
             </ul>
 
