@@ -5,6 +5,8 @@ import './App.css'
 
 function App() {
 
+  const [output, setOutput] = useState('Loading ....')
+
   return (
     <div className='w-full h-screen flex justify-center items-center'>
       <div className='h-auto w-[500px] px-12 py-10 text-center rounded bg-gray-900 space-y-5'>
@@ -41,6 +43,7 @@ function App() {
 
         <div className='pt-10'>
           <h1 className='text-2xl font-bold text-start'>OUTPUT: </h1>
+          <p>{output}</p>
         </div>
         
 
