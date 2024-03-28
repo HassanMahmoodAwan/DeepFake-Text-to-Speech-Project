@@ -46,10 +46,12 @@ function App() {
               const response = await axios.get("/file/upload")
 
               setOutput(
+                // typeof (response.data)
                 <audio controls>
-                  <source src={`${response.name}`} type="audio/mpeg" />
+                  <source src={`${response.data}`} type="audio/mpeg" />
                    Your browser does not support the audio element.
-                </audio> )
+                </audio> 
+                )
             }
             catch(err){ 
               setOutput("err")
@@ -181,7 +183,7 @@ function App() {
         </div>
         </div>
 
-        <div className='pt-10'>
+        <div className='pt-10 w-full flex justify-center'>
           <h1 className='text-2xl font-bold text-start'>OUTPUT: </h1>
           {output} <br></br>
           
