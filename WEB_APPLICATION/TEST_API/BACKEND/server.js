@@ -12,7 +12,8 @@ app.use('/audio', express.static(path.join(__dirname, 'public/audio')))
 
 
 
-const REPLICATE_API_TOKEN="r8_TB7manBWvqgknt5N2woW6ArfS1T4RDV4Z09W7"
+const REPLICATE_API_TOKEN="r8_06l6hwas5tCLkIEaTteQsVhantyhuU90rYoZo"
+// const REPLICATE_API_TOKEN="r8_TB7manBWvqgknt5N2woW6ArfS1T4RDV4Z09W7"
 const replicate = new Replicate({
     auth: REPLICATE_API_TOKEN,
 });
@@ -25,7 +26,8 @@ app.get("/file/upload", async(req, res)=>{
     try {
       const data = (await readFile(`./public/audio/${uploadedFile.name}`)).toString('base64'); // Await the result of readFile
       const image = `data:application/octet-stream;base64,${data}`;
-
+      
+      
       const input = {
           rvc_model: "Trump",
           song_input: image,

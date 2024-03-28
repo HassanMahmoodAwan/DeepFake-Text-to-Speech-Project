@@ -47,7 +47,7 @@ function App() {
 
               setOutput(
                 <audio controls>
-                  <source src={`&{response.name}`} type="audio/mpeg" />
+                  <source src={`${response.name}`} type="audio/mpeg" />
                    Your browser does not support the audio element.
                 </audio> )
             }
