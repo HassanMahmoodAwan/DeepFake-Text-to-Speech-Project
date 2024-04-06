@@ -42,7 +42,7 @@ function VoiceCloning() {
 
   // ===== File Upload and Handling File
 
-  
+
   function useFileChange(e){
     const file = e.target.files[0]
     if (file){
@@ -123,7 +123,7 @@ function VoiceCloning() {
   const sendRecording = async (blob, fileDate)=>{
     
     const formData = new FormData();
-    formData.append('file', blob, `A${fileDate}.mp3` );
+    formData.append('file', blob, `Voice_${fileDate}.mp3` );
     
     try{
     // Note: to Server.
@@ -147,11 +147,16 @@ function VoiceCloning() {
     // }else {
     //   alert("Error")
     // }
-    alert("Uplaoded successfull")
+        setAlertColor("green")
+        setAlertMsg(" File Upload Successfully ")
+        setOpenAlert(true)
 
   }catch (error) {
     console.error('Error uploading file:', error)
-    alert('Error uploading file. Please try again.')
+
+    setAlertColor("red")
+    setAlertMsg(" Error Uploading File! ")
+    setOpenAlert(true)
   } 
   }
 
@@ -174,7 +179,7 @@ function VoiceCloning() {
         sendRecording(blob, fileDate)
         setUploadFile(fileDate)
 
-        setShowInput(prev=>!prev)
+        // setShowInput(prev=>!prev)
         setInputFile(
             <audio controls>
             <source src={url} type="audio/mpeg" />

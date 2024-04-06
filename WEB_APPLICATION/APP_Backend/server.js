@@ -57,6 +57,7 @@ app.get("/file/upload", async(req, res)=>{
       
       res.send(output)
       uploadedFile = undefined
+      option = undefined
       return;
 
     } catch (error) {
