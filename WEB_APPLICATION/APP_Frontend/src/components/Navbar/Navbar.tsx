@@ -29,8 +29,13 @@ function Navbar() {
 
             {/* Login SignUp */}
             <div className="hidden lg:flex space-x-2">
-                <Button variant="outlined" placeholder={''} size="sm">Login</Button>
-                <Button variant="filled" placeholder={''} size="sm"  className="bg-indigo-800">SignUp</Button>
+                <Button variant="outlined" placeholder={''} size="sm">
+                    <NavLink to={"login"}>Login</NavLink>
+                </Button>
+                
+                <Button variant="filled" placeholder={''} size="sm" className="bg-indigo-800">
+                    <NavLink to={"signup"}>SignUp</NavLink>
+                </Button>
             </div>
 
             {/* Hamburgur Icon */}
