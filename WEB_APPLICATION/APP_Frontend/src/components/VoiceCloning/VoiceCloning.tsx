@@ -14,7 +14,7 @@ function VoiceCloning() {
 
   
   const [openAlert, setOpenAlert] = useState(false)
-  const [alertColor, setAlertColor] = useState("yellow")
+  const [alertColor, setAlertColor] = useState<any | string>("yellow")
   const [alertMsg, setAlertMsg] = useState("Alert Message")
 
 
@@ -27,17 +27,22 @@ function VoiceCloning() {
 
   
   const [input, setInput] = useState("No Input Provided")
-  const [Output, setOutput] = useState("Not Generated...")
+  const [Output, setOutput] = useState<JSX.Element | string>("Not Generated...")
   const [showInput, setShowInput] = useState(false)
   const [showOutput, setShowOutput] = useState(false)
+
+  
+  const [option, setOption] = useState<string>("Trump")
 
 
   const chunksRef = useRef([])
   const timerRef = useRef(null)
 
 
+
   // ===== File Upload and Handling File
 
+  
   function useFileChange(e){
     const file = e.target.files[0]
     if (file){
@@ -103,12 +108,13 @@ function VoiceCloning() {
         </audio> )
         
     }else {
-      setInputFile(<div className='text-lg text-gray-500 text-center'>Provide Audio ....</div>)
+      setInputFile("Provide Audio ....")
     }
     
     setShowInput(true)
   }, [showInput])
   // =============================== //
+
 
 
   
@@ -215,7 +221,22 @@ function VoiceCloning() {
 
   // ============ OUTPUT ===========
   async function generateOutput(){
-    setShowOutput(prev => !prev)
+    try {
+      await fetch('/file/option', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain',
+        },
+        body: option,
+      })
+      setOutput("Loading Generated Audio!")
+      setShowOutput(prev => !prev)
+
+    } catch (error) {
+        setAlertColor("red")
+        setAlertMsg(" Server Error 500 ! ")
+        setOpenAlert(true)
+    } 
   }
 
   useEffect(()=>{
@@ -223,22 +244,23 @@ function VoiceCloning() {
       if (showOutput){
         try{
           const response = await axios.get("/file/upload")
-
           setOutput(
-            // typeof (response.data)
-            "SDfs"
+            <audio controls>
+                <source src={`${response.data}`} type="audio/mpeg" />
+                Your browser does not support the audio element.
+            </audio> 
+            
             )
         }
-        catch(err){ 
+        catch(error){ 
           setOutput("Error Generating Ouput!")
         }
-      }
-      
-      
+      }            
     })()
     
     setShowOutput(true)
 }, [showOutput])
+// ================= END OF OUTPUT ==========
 
   
 
@@ -248,9 +270,7 @@ function VoiceCloning() {
     <>
     {/* {showAlert} */}
     <Alert
-    // color={alertColor}
-
-    color={`red`}
+    color={alertColor}
     open={openAlert}
     onClose={() => setOpenAlert(false)}
     animate={{
@@ -359,9 +379,14 @@ function VoiceCloning() {
 
               <div className="w-72">
                   <p>Select Target Person Voice: </p>
-                  <Select label="Select Voice" placeholder={""} success>
-                    <Option>Trump</Option>
-                   <Option>Biden</Option>
+                  <Select label="Select Voice" placeholder={""}
+                  value={option}
+                  onChange={(val)=> setOption(val)} success>
+
+                    <Option value='Trump'>Trump</Option>
+                    <Option value='Biden'>Biden</Option>
+                    <Option value='Wajahat'>Wajahat</Option>
+
                   </Select>         
               </div>
 
@@ -376,17 +401,19 @@ function VoiceCloning() {
             </div>
             {/* ========= END OF OPTIONS ========= */}
             
-            {/* ======= Generate Button ======== */}
+            {/* ======= Generate Output Button ======== */}
             <div className='my-12'>
               <button className='px-8 py-2 bg-indigo-800 hover:bg-indigo-900 text-white font-bold rounded'
               onClick={generateOutput}>Generate Audio</button>
             </div>
             {/* ========= End of BTN =========== */}
 
+
             {/* ======== INPUT ======== */}
                 <div className='my-6 text-start'>
                   <h1 className='text-2xl font-bold '>Input:</h1>
-                  <div>{inputFile}</div>
+                  <div className='flex justify-center text-gray-600'>
+                    {inputFile}</div>
                 </div>
             {/* ====== END Input ======== */}
 
